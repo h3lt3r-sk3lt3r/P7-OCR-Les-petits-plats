@@ -6,7 +6,7 @@ Lien : [Fisheye Website](https://h3lt3r-sk3lt3r.github.io/P7-OCR-Les-petits-plat
 
 ## Fabriqué avec
 
-* [Visual Studio Code](https://code.visualstudio.com/) - Editeur de textes
+* [Visual Studio Code](https://code.visualstudio.com/) - Editeur de texte
 
 ## Auteurs
 
