@@ -2,7 +2,7 @@
 
 Projet 7 du cursus Développeur Javascript React proposé par [OpenClassrooms](https://openclassrooms.com/fr/).
 
-Lien : [Fisheye Website](https://h3lt3r-sk3lt3r.github.io/P7-OCR-Les-petits-plats/)
+Lien : [Les petits plats](https://h3lt3r-sk3lt3r.github.io/P7-OCR-Les-petits-plats/)
 
 ## Fabriqué avec
 

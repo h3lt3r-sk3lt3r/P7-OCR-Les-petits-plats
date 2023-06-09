@@ -206,7 +206,9 @@ header {
 .recipes {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 25px;
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -227,6 +229,7 @@ header {
   padding: 20px;
   background-color: #E7E7E7;
   font-size: 12px;
+  border-radius: 0 0 5px 5px;
 }
 
 .card-title {
@@ -279,4 +282,8 @@ header {
 .card-description p {
   overflow: hidden;
   font-family: "Roboto", sans-serif;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
