@@ -213,6 +213,15 @@ header {
   margin-bottom: 30px;
 }
 
+.recipes-error {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+  color: #D04F4F;
+}
+
 .card-recipe {
   border-radius: 5px;
   width: 380px;
