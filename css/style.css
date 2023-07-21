@@ -30,7 +30,17 @@ header {
   align-items: center;
 }
 
+main {
+  width: 1240px;
+  margin: auto;
+}
+
 /* Search bar */
+
+form {
+  position: relative;
+  width: 100%;
+}
 
 .search-bar input {
   border: none;
@@ -90,34 +100,31 @@ header {
 
 .search-buttons {
   display: flex;
+  flex-wrap: nowrap;
+  flex-grow: 4;
+  gap: 32px;
   align-items: center;
   justify-content: flex-start;
   margin-top: 15px;
-  gap: 20px;
 }
 
-/* .search-dropdowns {
-  position: relative;
-  display: inline-block;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 20px;
-} */
-
 .search-dropdowns {
-  width: 170px;
-  height: 66px;
+  width: auto;
+  max-width: 665px;
 }
 
 .dropdown-global {
   position: relative;
-  height: 66px;
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  background: #3282F7;
+  height: 68px;
+  width: 170px;
   border-radius: 5px;
-  /* line-height: 23px; */
-  /* appearance: none; */
+  line-height: 23px;
+  appearance: none;
   cursor: pointer;
 }
 
@@ -142,6 +149,49 @@ header {
   transform: translate(-50%, -50%);
 }
 
+.dropdown-global .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: none;
+  border-radius: 0 0 5px 5px;
+  list-style-type: none;
+  padding-left: 10px;
+  padding-bottom: 16px;
+  width: 665px;
+  max-height: 275px;
+  overflow: scroll;
+}
+
+.dropdown-global .dropdown-ingredients {
+  background: #3282F7;
+}
+
+.dropdown-global li {
+  width: 150px;
+  padding: 10px 10px 10px 0;
+  padding-left: 10px;
+  color: #FFFFFF;
+}
+
+.dropdown-global-open {
+  border-radius: 5px 5px 5px 0;
+}
+
+.dropdown-global-open .dropdown-global {
+  display: block;
+}
+
+.wrapper-devices, .dropdown-global .dropdown-devices {
+  background-color: #68D9A4 ;
+}
+
+.wrapper-utensils,
+.dropdown-global .dropdown-utensils {
+  background-color: #ED6454;
+}
+
 .search-dropdowns i {
   position: absolute;
   font-size: 12px;
@@ -151,55 +201,9 @@ header {
   transform: translate(-50%, -50%);
 }
 
-.dropdown-ingredients {
+.wrapper-ingredients {
   background-color: #3282F7;
 }
-
-.dropdown-devices {
-  background-color: #68D9A4;
-}
-
-.dropdown-utensils {
-  background-color: #ED6454;
-}
-
-/* .search-button {
-  padding: 20px 17px;
-  background-color: #3282F7;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.search-input {
-  padding: 8px;
-  border: 1px solid;
-  border-radius: 5px;
-  display: none;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background-color: green;
-  border: 1px solid;
-  border-top: none;
-  border-radius: 5px;
-  display: none;
-}
-
-.dropdown-menu li {
-  padding: 8px 12px;
-  cursor: pointer;
-}
-
-.dropdown-menu li:hover {
-  background-color: red;
-} */
 
 /* cards recipe */
 
@@ -267,7 +271,6 @@ header {
 
 .card-ingredients {
   display: flex;
-  /* flex-direction: row; */
   justify-content: space-around;
   font-size: 12px;
   gap: 25px;

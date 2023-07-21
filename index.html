@@ -32,42 +32,30 @@
 
     <div class="search-buttons">
       <div class="search-dropdowns">
-        <div class="dropdown-global dropdown-ingredients">
+        <div class="dropdown-global wrapper-ingredients">
           <button>Ingrédients</button>
           <i class="fa-solid fa-chevron-down"></i>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu dropdown-ingredients">
           </ul>
         </div>
       </div>
       <div class="search-dropdowns">
-        <div class="dropdown-global dropdown-devices">
+        <div class="dropdown-global wrapper-devices">
           <button>Appareils</button>
           <i class="fa-solid fa-chevron-down"></i>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu dropdown-devices">
           </ul>
         </div>
       </div>
       <div class="search-dropdowns">
-        <div class="dropdown-global dropdown-utensils">
+        <div class="dropdown-global wrapper-utensils">
           <button>Ustensiles</button>
           <i class="fa-solid fa-chevron-down"></i>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu dropdown-utensils">
           </ul>
         </div>
       </div>
     </div>
-    <!-- <div class="search-buttons">
-      <div class="search-dropdowns">
-        <button class="search-button" type="button" onclick="toggleDropdown()">Ingrédients</button>
-        <i class="fa-solid fa-chevron-down"></i>
-        <input type="search" class="search-input" placeholder="Rechercher un ingrédient">
-        <ul class="dropdown-menu">
-          <li>Terme 1</li>
-          <li>Terme 2</li>
-          <li>Terme 3</li>
-        </ul>
-      </div>
-    </div> -->
 
     <div class="recipes-error"></div>
     <div class="recipes"></div>
@@ -76,6 +64,8 @@
   <script src="./scripts/factories/recipes.js"></script>
   <script src="./scripts/pages/index.js"></script>
   <script src="./scripts/utils/searchBar.js"></script>
+  <script src="./scripts/factories/dropdown.js"></script>
+  <script src="./scripts/utils/dropdown.js"></script>
 
 </body>
 </html>
