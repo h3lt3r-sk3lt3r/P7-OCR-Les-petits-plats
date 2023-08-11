@@ -7,7 +7,7 @@ function dropdownFactory(data, datatype) {
   switch (datatype) {
     case "ingredient":
       list = dropdownIngredients.querySelectorAll('li');
-      value = data.ingredients;
+      value = data.ingredient;
       break;
     case "device":
       list = dropdownDevices.querySelectorAll('li');

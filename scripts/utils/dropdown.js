@@ -4,23 +4,75 @@ const wrapperUtensils = document.querySelector('.wrapper-utensils');
 const dropdownIngredients = document.querySelector('.dropdown-ingredients');
 const dropdownDevices = document.querySelector('.dropdown-devices');
 const dropdownUtensils = document.querySelector('.dropdown-utensils');
+const tags = document.querySelector('.tags');
 
-function openDropdown(e) {
+function toggleDropdown(e) {
+  const filters = document.querySelectorAll('.search-dropdowns')
   const parent = e.target.parentNode;
+  const clickedFilter = parent.parentNode
+  const dropdown = document.querySelector('.dropdown-menu')
   parent.classList.toggle('dropdown-global-open');
+  filters.forEach(filter => {
+    if(filter != clickedFilter){
+      filter.classList.toggle('dropdown-not-clicked');
+    }
+  })
+  clickedFilter.classList.toggle('dropdown-clicked');
+  dropdown.style.display = 'block'
 }
 
-wrapperIngredients.addEventListener('click', (e) =>{
-  openDropdown(e);
-});
+function clickedDropdownItem(event) {
+  const tag = document.createElement('div');
+  const nameTag = document.createElement('span');
+  const closeIcon = document.createElement('i');
 
-wrapperDevices.addEventListener('click', (e) => {
-  openDropdown(e);
-});
+  nameTag.textContent = event.target.textContent;
+  closeIcon.classList.add('fa-sharp fa-regular fa-circle-xmark tag-close-icon')
 
-wrapperUtensils.addEventListener('click', (e) => {
-  openDropdown(e);
-});
+  tag.classList.add('tag');
+  tag.classList.add('tag-ingredient');
+
+  tag.appendChild(nameTag);
+  tag.appendChild(closeIcon);
+
+  tags.appendChild(tag);
+  tags.style.display = 'flex';
+  closeIcon.addEventListener('click', (event) => {
+    closeTag(event.target);
+  })
+}
+
+function addListener(node) {
+  if(node.hasChildNodes()) {
+    for(const child of node.children){
+      if(child.tagName != 'ul' && child.tagName != 'input'){
+        child.addEventListener('click', (event) => {
+          toggleDropdown(event);
+        })
+      }
+      if(child.tagName == 'ul'){
+        child.addEventListener('click', (event) => {
+          clickedDropdownItem(event);
+        })
+      }
+    }
+  }
+}
+addListener(wrapperIngredients);
+addListener(wrapperDevices);
+addListener(wrapperUtensils);
+
+// wrapperIngredients.addEventListener('click', (e) =>{
+//   openDropdown(e);
+// });
+
+// wrapperDevices.addEventListener('click', (e) => {
+//   openDropdown(e);
+// });
+
+// wrapperUtensils.addEventListener('click', (e) => {
+//   openDropdown(e);
+// });
 
 function displayIngredientsFilter(ingredients) {
   ingredients.forEach((ingredient) => {
@@ -56,7 +108,7 @@ function displayDropdown(recipes) {
   dropdownUtensils.innerHTML = '';
   recipes.forEach((recipe) => {
     const ingredients = recipe.ingredients;
-    const devices = recipe.applicance;
+    const devices = recipe.appliance;
     const utensils = recipe.ustensils;
     displayIngredientsFilter(ingredients);
     displayDevicesFilter(devices);

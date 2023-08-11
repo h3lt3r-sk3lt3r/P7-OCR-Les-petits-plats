@@ -24,16 +24,13 @@
     </form>
 
     <div class="tags">
-      <div class="tag">
-        <span>Coco</span>
-        <i class="fa-sharp fa-regular fa-circle-xmark"></i>
-      </div>
     </div>
 
     <div class="search-buttons">
       <div class="search-dropdowns">
         <div class="dropdown-global wrapper-ingredients">
           <button>Ingrédients</button>
+          <input type="text" name="ingredient" id="ingredient" class="dropdown-input" placeholder="Rechercher un ingredient">
           <i class="fa-solid fa-chevron-down"></i>
           <ul class="dropdown-menu dropdown-ingredients">
           </ul>
@@ -42,14 +39,16 @@
       <div class="search-dropdowns">
         <div class="dropdown-global wrapper-devices">
           <button>Appareils</button>
+          <input type="text" name="device" id="device" class="dropdown-input" placeholder="Rechercher un appareil">
           <i class="fa-solid fa-chevron-down"></i>
-          <ul class="dropdown-menu dropdown-devices">
+          <ul class="dropdown-menu dropdown-devices">devices
           </ul>
         </div>
       </div>
       <div class="search-dropdowns">
         <div class="dropdown-global wrapper-utensils">
           <button>Ustensiles</button>
+          <input type="text" name="utensil" id="utensil" class="dropdown-input" placeholder="Rechercher un ustensil">
           <i class="fa-solid fa-chevron-down"></i>
           <ul class="dropdown-menu dropdown-utensils">
           </ul>
@@ -61,6 +60,7 @@
     <div class="recipes"></div>
   </main>
 
+  <script src="./scripts/utils/tags.js"></script>
   <script src="./scripts/factories/recipes.js"></script>
   <script src="./scripts/pages/index.js"></script>
   <script src="./scripts/utils/searchBar.js"></script>

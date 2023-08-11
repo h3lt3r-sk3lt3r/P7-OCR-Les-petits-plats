@@ -40,6 +40,7 @@ main {
 form {
   position: relative;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .search-bar input {
@@ -66,15 +67,14 @@ form {
 /* Tags */
 
 .tags {
-  display: flex;
-  flex-wrap: wrap;
+  display: none;
   align-items: center;
+  gap: 24px;
   margin-top: 25px;
   margin-bottom: 10px;
 }
 
 .tag {
-  border: none;
   border-radius: 5px;
   background-color: #3282F7;
   display: flex;
@@ -82,9 +82,11 @@ form {
   align-items: center;
   height: 40px;
   color: white;
-  padding: 20px;
-  font-size: 14px;
-  margin-right: 10px;
+  width: 107px;
+}
+
+.tag-close-icon {
+  cursor: pointer;
 }
 
 .tag span {
@@ -118,7 +120,8 @@ form {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
+  align-items: center;
   background: #3282F7;
   height: 68px;
   width: 170px;
@@ -126,6 +129,28 @@ form {
   line-height: 23px;
   appearance: none;
   cursor: pointer;
+}
+
+.dropdown-global .dropdown-input {
+  position: relative;
+  background-color: inherit;
+  color:#FFFFFF;
+  display: none;
+  width: 75%;
+  height: 30%;
+  border: none;
+  text-align: left;
+  left: 19px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.dropdown-global .dropdown-input::placeholder {
+  color: #E7E7E7;
+}
+
+.dropdown-global .dropdown-input:focus {
+  outline: none;
 }
 
 .dropdown-global button {
@@ -169,7 +194,7 @@ form {
 }
 
 .dropdown-global li {
-  width: 150px;
+  width: 100%;
   padding: 10px 10px 10px 0;
   padding-left: 10px;
   color: #FFFFFF;
@@ -177,9 +202,23 @@ form {
 
 .dropdown-global-open {
   border-radius: 5px 5px 5px 0;
+  width: 665px;
 }
 
 .dropdown-global-open .dropdown-global {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.dropdown-global-open i {
+  transform: rotate(180deg);
+}
+
+.dropdown-global-open button {
+  display: none;
+}
+
+.dropdown-global-open .dropdown-input {
   display: block;
 }
 
@@ -194,7 +233,7 @@ form {
 
 .search-dropdowns i {
   position: absolute;
-  font-size: 12px;
+  font-size: 20px;
   right: 5px;
   color: #FFFFFF;
   top: 49%;
@@ -203,6 +242,14 @@ form {
 
 .wrapper-ingredients {
   background-color: #3282F7;
+}
+
+.dropdown-clicked {
+  z-index: 1;
+}
+
+.dropdown-not-clicked {
+  z-index: -1;
 }
 
 /* cards recipe */
