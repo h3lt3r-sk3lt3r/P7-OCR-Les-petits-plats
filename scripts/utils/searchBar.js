@@ -22,6 +22,7 @@ function searchBarRecipes(data, recipes) {
 function displaySearchBar(data, recipes) {
   const search = searchBarRecipes(data, recipes);
   search.length > 0 ? displayRecipes(search) : displayNoRecipes();
+  displayDropdown(recipes);
 }
 
 searchBar.addEventListener('input', (e) => {
@@ -32,11 +33,12 @@ searchBar.addEventListener('input', (e) => {
 })
 
 searchBar.addEventListener('keyup', (e) => {
-  if(e.key == "Backspace" || e.key == "Delete") {
+  if(e.key == 'Backspace' || e.key == 'Delete') {
     const searchedResult = e.currentTarget.value.trim().toLowerCase();
     if (searchedResult.length < 3) {
       search = [];
       displayRecipes(recipes);
+      displayDropdown(recipes);
     }
   }
 })
