@@ -16,19 +16,22 @@ function searchBarRecipes(data, recipes) {
     return matched;
   }
   ));
-  return search;
+  //return search;
+  search.length > 0 ? displayRecipes(search) : displayNoRecipes();
+  displayDropdown(search);
 }
 
-function displaySearchBar(data, recipes) {
-  const search = searchBarRecipes(data, recipes);
-  search.length > 0 ? displayRecipes(search) : displayNoRecipes();
-  displayDropdown(recipes);
-}
+// function displaySearchBar(data, recipes) {
+//   const search = searchBarRecipes(data, recipes);
+//   search.length > 0 ? displayRecipes(search) : displayNoRecipes();
+//   displayDropdown(recipes);
+// }
 
 searchBar.addEventListener('input', (e) => {
   if (e.currentTarget.value.length >= 3) {
     const searchedResult = e.currentTarget.value.trim().toLowerCase();
-    displaySearchBar(searchedResult, recipes);
+    //displaySearchBar(searchedResult, recipes);
+    searchBarRecipes(searchedResult, recipes)
   }
 })
 

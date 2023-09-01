@@ -6,6 +6,8 @@ const dropdownDevices = document.querySelector('.dropdown-devices');
 const dropdownUtensils = document.querySelector('.dropdown-utensils');
 const tags = document.querySelector('.tags');
 
+const selectedTags = [];
+
 function toggleDropdown(target) {
   // const filters = document.querySelectorAll('.search-dropdowns')
   const parent = target.parentNode;
@@ -82,7 +84,8 @@ function displayIngredientsFilter(ingredients) {
     if (ingredientLi) {
       ingredientLi.dataset.type = 'ingredient';
       ingredientLi.addEventListener('click', (event) => {
-        searchBarRecipes(event.target.textContent);
+        selectedTags.push(event.target.textContent);
+        searchBarRecipes(event.target.textContent, search.length > 0 ? search : recipes);
         toggleDropdown(dropdownIngredients);
       })
       dropdownIngredients.appendChild(ingredientLi);
@@ -97,7 +100,8 @@ function displayUtensilsFilter(utensils) {
     if (utensilLi) {
       utensilLi.dataset.type = 'utensil';
       utensilLi.addEventListener('click', (event) => {
-        searchBarRecipes(event.target.textContent);
+        selectedTags.push(event.target.textContent);
+        searchBarRecipes(event.target.textContent, search.length > 0 ? search : recipes);
         toggleDropdown(dropdownUtensils);
       })
       dropdownUtensils.appendChild(utensilLi);
@@ -111,7 +115,8 @@ function displayDevicesFilter(devices) {
   if (deviceLi) {
     deviceLi.dataset.type = 'device';
     deviceLi.addEventListener('click', (event) => {
-      searchBarRecipes(event.target.textContent);
+      selectedTags.push(event.target.textContent);
+      searchBarRecipes(event.target.textContent, search.length > 0 ? search : recipes);
       toggleDropdown(dropdownDevices);
     })
     dropdownDevices.appendChild(deviceLi);

@@ -2,6 +2,7 @@ const recipeDisplay = document.querySelector('.recipes');
 const noRecipe = document.querySelector('.recipes-error')
 
 let recipes = [];
+let search = [];
 
 async function getRecipes() {
   try {
