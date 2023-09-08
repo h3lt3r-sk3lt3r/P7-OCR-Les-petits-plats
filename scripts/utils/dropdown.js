@@ -28,7 +28,10 @@ function clickedDropdownItem(target) {
   const closeIcon = document.createElement('i');
 
   nameTag.textContent = target.textContent;
-  closeIcon.classList.add('fa-sharp fa-regular fa-circle-xmark tag-close-icon')
+  closeIcon.classList.add('fa-sharp');
+  closeIcon.classList.add('fa-regular');
+  closeIcon.classList.add('fa-circle-xmark');
+  closeIcon.classList.add('tag-close-icon');
 
   tag.classList.add('tag');
   tag.classList.add(tagType(target));
@@ -44,14 +47,15 @@ function clickedDropdownItem(target) {
 }
 
 function addListener(node) {
+  console.log(node)
   if(node.hasChildNodes()) {
     for(const child of node.children){
-      if(child.tagName != 'ul' && child.tagName != 'input'){
+      if(child.tagName != 'UL' && child.tagName != 'INPUT'){
         child.addEventListener('click', (event) => {
           toggleDropdown(event.target);
         })
       }
-      if(child.tagName == 'ul'){
+      if(child.tagName == 'UL'){
         child.addEventListener('click', (event) => {
           clickedDropdownItem(event.target);
         })
@@ -124,12 +128,12 @@ function displayDevicesFilter(devices) {
 }
 
 function tagType(tag) {
-  switch (item.dataset.type) {
+  switch (tag.dataset.type) {
     case 'ingredient':
       return 'tag-ingredient';
     case 'device':
       return 'tag-device';
     default:
-      return 'tag utensil';
+      return 'tag-utensil';
   }
 }
