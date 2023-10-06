@@ -21,6 +21,6 @@ function getRecipeWithTags() {
     displayRecipes(recipes);
   }
   selectedTags.forEach(tag => {
-    searchBarRecipes(tag, search)
+    displaySearchInput(tag, search)
   })
 }

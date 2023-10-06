@@ -36,5 +36,8 @@ async function init() {
   recipes = await getRecipes();
   displayRecipes(recipes);
   displayDropdown(recipes);
+  addListener(wrapperIngredients);
+  addListener(wrapperDevices);
+  addListener(wrapperUtensils);
 }
 init();

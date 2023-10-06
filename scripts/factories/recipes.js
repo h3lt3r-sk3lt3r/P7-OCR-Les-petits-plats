@@ -45,6 +45,7 @@ function recipeFactory(data) {
 
     const card = document.createElement('article');
     card.classList.add('card-recipe');
+    card.dataset.ustensils = `${ustensils}`;
     card.appendChild(cardImage);
     card.appendChild(cardInstructions);
 
@@ -58,7 +59,7 @@ function recipeFactory(data) {
       if(!ingredient.quantity){
         ingredientsList.innerHTML += `<li><b>${ingredient.ingredient}</b></li>`;
       } else if(ingredient.hasOwnProperty('unit')) {
-        ingredientsList.innerHTML += `<li><b>${ingredient.ingredient}:</b> ${ingredient.quantity}${ingredient.unit.slice(0, 9)}</li>`;
+        ingredientsList.innerHTML += `<li><b>${ingredient.ingredient}:</b> ${ingredient.quantity} ${ingredient.unit.slice(0, 9)}</li>`;
       } else {
         ingredientsList.innerHTML += `<li><b>${ingredient.ingredient}:</b> ${ingredient.quantity}</li>`;
       }
