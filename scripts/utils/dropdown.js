@@ -83,7 +83,7 @@ function tagType(tag) {
 }
 
 function searchDropdown(input, items) {
-  const regex = new RegExp(input, "gmi");
+  const regex = new RegExp(input, "gmiu");
   return items.filter((item) => regex.test(item))
 }
 

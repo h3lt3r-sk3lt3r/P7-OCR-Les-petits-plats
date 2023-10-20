@@ -9,6 +9,9 @@ function displayDevicesFilter(devices) {
   const deviceLi = deviceModel.getDropdown();
   if (deviceLi) {
     deviceLi.dataset.type = 'device';
+    if (selectedTags.includes(devices)) {
+      deviceLi.classList.add('dropdown-added-tag')
+    }
     deviceLi.addEventListener('click', (event) => {
       selectedTags.push(event.target.textContent);
       displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes);
@@ -36,7 +39,7 @@ inputDevice.addEventListener("input", (event) => {
 
 inputDevice.addEventListener("keyup", (event) => {
   if (event.key == "Backspace" || event.key == "Delete") {
-    const searchedItem = event.currentTarget.value.trim().toLowerCase();
+    const searchedItem = normalizer(event.currentTarget.value);
     if (searchedItem.length < 3) {
       filterDevices = [];
       removeDropdownChildNode(dropdownDevices);

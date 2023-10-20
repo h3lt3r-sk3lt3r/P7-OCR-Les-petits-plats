@@ -15,12 +15,69 @@ function removedSelectedTag(tag) {
 }
 
 function getRecipeWithTags() {
-  search = recipes;
-  if (selectedTags.length == 0) {
-    displayDropdown(recipes);
-    displayRecipes(recipes);
+  const inputValue = document.querySelector('#search-bar').value;
+
+  if (inputValue.length <= 2) {
+    if (selectedTags.length > 0) {
+      const tagUtensils = document.querySelectorAll('.tag-utensil');
+      if (tagUtensils.length > 0) {
+        let utensilsTags = Array.from(tagUtensils, (tag) => tag.querySelector('span').textContent);
+        selectedTags.forEach((tag, i) => {
+          if (utensilsTags.includes(tag)) {
+            if (i === 0) {
+              displaySearchInputFromUtensils(tag, i === 0 ? recipes : search);
+            } else {
+              displaySearchInputFromUtensils(tag, search);
+            }
+          } else if (i === 0) {
+            displaySearchInput(tag, recipes);
+          } else {
+            displaySearchInput(tag, search);
+          }
+        });
+      } else {
+        selectedTags.forEach((tag, i) => {
+          if (i === 0) {
+            displaySearchInput(tag, recipes);
+          } else {
+            displaySearchInput(tag, search);
+          }
+        });
+      }
+    } else {
+      search = [];
+      displayDropdown(recipes);
+      displayRecipes(recipes);
+    }
+  } else {
+    if (selectedTags.length > 0) {
+      const tagUtensils = document.querySelectorAll('.tag-utensil');
+      if (tagUtensils.length > 0) {
+        let utensilsTags = Array.from(tagUtensils, (tag) => tag.querySelector('span').textContent);
+        selectedTags.forEach((tag, i) => {
+          if (utensilsTags.includes(tag)) {
+            if (i === 0) {
+              displaySearchInputFromUtensils(tag, i === 0 ? recipes : search);
+            } else {
+              displaySearchInputFromUtensils(tag, search);
+            }
+          } else if (i === 0) {
+            displaySearchInput(tag, recipes);
+          } else {
+            displaySearchInput(tag, search);
+          }
+        });
+      } else {
+        selectedTags.forEach((tag, i) => {
+          if (i === 0) {
+            displaySearchInput(tag, recipes);
+          } else {
+            displaySearchInput(tag, search);
+          }
+        });
+      }
+    } else {
+      displaySearchInput(inputValue, recipes);
+    }
   }
-  selectedTags.forEach(tag => {
-    displaySearchInput(tag, search)
-  })
 }

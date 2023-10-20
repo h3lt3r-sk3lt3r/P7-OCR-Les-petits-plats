@@ -10,6 +10,9 @@ function displayIngredientsFilter(ingredients) {
     const ingredientLi = ingredientModel.getDropdown();
     if (ingredientLi) {
       ingredientLi.dataset.type = 'ingredient';
+      if (selectedTags.includes(ingredient.ingredient)) {
+        ingredientLi.classList.add('dropdown-added-tag')
+      }
       ingredientLi.addEventListener('click', (event) => {
         selectedTags.push(event.target.textContent);
         displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes);
@@ -38,7 +41,7 @@ inputIngredient.addEventListener("input", (event) => {
 
 inputIngredient.addEventListener("keyup", (event) => {
   if (event.key == "Backspace" || event.key == "Delete") {
-    const searchedItem = event.currentTarget.value.trim().toLowerCase();
+    const searchedItem = normalizer(event.currentTarget.value);
     if (searchedItem.length < 3) {
       filterIngredients = [];
       removeDropdownChildNode(dropdownIngredients);

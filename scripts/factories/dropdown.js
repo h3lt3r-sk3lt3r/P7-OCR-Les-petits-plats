@@ -41,7 +41,7 @@ function dropdownFactory(data, datatype) {
   function isAlreadyPresentInList(value) {
     dropdownList = Array.from(list);
 
-    const reg = new RegExp(`${value}`, "i");
+    const reg = new RegExp(value, "gmiu");
     existingList = dropdownList.filter((item) => {
       if (reg.test(item.textContent)) {
         return true;
@@ -52,11 +52,8 @@ function dropdownFactory(data, datatype) {
   }
 
   function isAlreadyPresentInArray(value, array) {
-    const reg = new RegExp(`${value}`, "i");
-    existingArray = array.filter((item) => {
-      return reg.test(item);
-    });
-    return existingArray;
+    const reg = new RegExp(value, "gmiu");
+    return array.filter(item => reg.test(item));
   }
 
   return { getDropdown };
