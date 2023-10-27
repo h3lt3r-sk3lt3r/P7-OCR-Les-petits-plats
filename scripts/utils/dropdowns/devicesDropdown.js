@@ -23,7 +23,7 @@ function displayDevicesFilter(devices) {
 
 function displayInputDevice(input, devices) {
   const filteredDevices = searchDropdown(input, devices);
-  if (filteredDevices.length > 0) {
+  if (filteredDevices.length >= 0) {
     removeDropdownChildNode(dropdownDevices);
     displayDevicesFilter(filteredDevices);
   } else {
@@ -32,15 +32,15 @@ function displayInputDevice(input, devices) {
 }
 
 inputDevice.addEventListener("input", (event) => {
-  if (event.currentTarget.value.length > 2) {
+  if (event.currentTarget.value.length > 0) {
     displayInputDevice(event.target.value, filterDevices);
   }
 });
 
 inputDevice.addEventListener("keyup", (event) => {
   if (event.key == "Backspace" || event.key == "Delete") {
-    const searchedItem = normalizer(event.currentTarget.value);
-    if (searchedItem.length < 3) {
+    const searchedItem = event.currentTarget.value.trim().toLowerCase();
+    if (searchedItem.length <= 0) {
       filterDevices = [];
       removeDropdownChildNode(dropdownDevices);
       recipes.forEach((recipe) => {

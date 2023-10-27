@@ -34,15 +34,15 @@ function displayInputIngredient(input, ingredients) {
 }
 
 inputIngredient.addEventListener("input", (event) => {
-  if (event.currentTarget.value.length > 2) {
+  if (event.currentTarget.value.length > 0) {
     displayInputIngredient(event.target.value, filterIngredients);
   }
 });
 
 inputIngredient.addEventListener("keyup", (event) => {
   if (event.key == "Backspace" || event.key == "Delete") {
-    const searchedItem = normalizer(event.currentTarget.value);
-    if (searchedItem.length < 3) {
+    const searchedItem = event.currentTarget.value.trim().toLowerCase();
+    if (searchedItem.length <= 0) {
       filterIngredients = [];
       removeDropdownChildNode(dropdownIngredients);
       recipes.forEach((recipe) => {

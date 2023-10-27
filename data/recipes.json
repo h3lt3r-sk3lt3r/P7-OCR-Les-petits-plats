@@ -2,7 +2,7 @@
   "recipes": [
       {
           "id": 1,
-          "name" : "Limonade de Coco",
+          "name" : "Limonade de coco",
           "servings" : 1,
           "ingredients": [
               {
@@ -35,11 +35,11 @@
       },
       {
           "id": 2,
-          "name" : "Poisson Cru à la tahitienne",
+          "name" : "Poisson cru à la tahitienne",
           "servings": 2,
           "ingredients": [
               {
-                  "ingredient" : "Thon Rouge (ou blanc)",
+                  "ingredient" : "Thon rouge (ou blanc)",
                   "quantity" : 200,
                   "unit" : "grammes"
               },
@@ -56,11 +56,11 @@
                   "quantity" : 1
               },
               {
-                  "ingredient" : "Citron Vert",
+                  "ingredient" : "Citron vert",
                   "quantity" : 5
               },
               {
-                  "ingredient" : "Lait de Coco",
+                  "ingredient" : "Lait de coco",
                   "quantity" : 100,
                   "unit" : "ml"
               }
@@ -206,7 +206,7 @@
                   "unit": "cl"
               },
               {
-                  "ingredient": "Sucre en Poudre",
+                  "ingredient": "Sucre en poudre",
                   "quantity": 100,
                   "unit":"grammes"
               },
@@ -279,7 +279,7 @@
                   "quantity": 2
             },
             {
-                "ingredient": "Sucre en Poudre",
+                "ingredient": "Sucre en poudre",
                 "quantity": "110",
                 "unit": "grammes"
             },
@@ -297,7 +297,7 @@
       },
       {
           "id": 9,
-          "name": "Salade Méditerannéene fraîche au chèvre",
+          "name": "Salade méditerannéene fraîche au chèvre",
           "servings": 4,
           "ingredients":[
               {
@@ -313,7 +313,7 @@
                   "unit": "grammes"
               },
               {
-                  "ingredient": "Vinaigre Balsamic"
+                  "ingredient": "Vinaigre balsamique"
               },
               {
                   "ingredient": "Huile d'olive"
@@ -323,7 +323,7 @@
               }
           ],
           "time": 15,
-          "description":"Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olives à votre goût.",
+          "description":"Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamique et l'huile d'olives à votre goût.",
           "appliance":"Saladier",
           "ustensils":["Cuillère en bois", "Couteau", "Saladier"]
       },
@@ -377,7 +377,7 @@
                   "unit": "grammes"
               },
               {
-                  "ingredient": "Jambon de parme",
+                  "ingredient": "Jambon de Parme",
                   "quantity": 4,
                   "unit": "tranches"
               },
@@ -386,7 +386,7 @@
                   "quantity": 1
               },
               {
-                  "ingredient": "Salade Verte",
+                  "ingredient": "Salade verte",
                   "quantity": 1
               },
               {
@@ -396,7 +396,7 @@
               }
           ],
           "time": 10,
-          "description": "Commencer par couper les feuilles de salade, ajouter les tomates cerises et le fromage découpé en cubes ou en boules avec la cuillère à melon. Découper le jambon de parme en fines lamelles. Ajouter la pomme elle aussi découpée en petit morceaux. Assaisonnez à votre gout. ",
+          "description": "Commencer par couper les feuilles de salade, ajouter les tomates cerises et le fromage découpé en cubes ou en boules avec la cuillère à melon. Découper le jambon de Parme en fines lamelles. Ajouter la pomme elle aussi découpée en petit morceaux. Assaisonnez à votre gout. ",
           "appliance": "Saladier",
           "ustensils": ["Couteau", "Cuillère à melon", "Saladier"]
       },{
@@ -467,7 +467,7 @@
       },
       {
           "id": 14,
-          "name": "Galette Bretonne Saucisse et Fromage à raclette",
+          "name": "Galette bretonne saucisse et Fromage à raclette",
           "servings": 2,
           "ingredients": [
               {
@@ -507,7 +507,7 @@
       },
       {
           "id": 15,
-          "name": "Crêpes Chocolat Banane",
+          "name": "Crêpes chocolat banane",
           "servings": 10,
           "ingredients": [
               {
@@ -639,7 +639,7 @@
       },
       {
           "id": 19,
-          "name": "Shake Banane Kiwi",
+          "name": "Shake banane kiwi",
           "servings": 4,
           "ingredients": [
               {
@@ -672,7 +672,7 @@
       },
       {
           "id": 20,
-          "name": "Pâtes Carbonara",
+          "name": "Pâtes carbonara",
           "servings": 5,
           "ingredients": [
               {
@@ -997,7 +997,7 @@
       },
       {
           "id": 29,
-          "name": "Houmous Express",
+          "name": "Houmous express",
           "servings": 2,
           "ingredients": [
               {
@@ -1087,7 +1087,7 @@
       },
       {
           "id": 32,
-          "name": "Croque Monsieur à la dinde",
+          "name": "Croque monsieur à la dinde",
           "servings": 4,
           "ingredients": [
               {
@@ -1137,7 +1137,7 @@
                   "unit": "tranches"
               },
               {
-                  "ingredient": "Saumon Fumé",
+                  "ingredient": "Saumon fumé",
                   "quantity": 4,
                   "unit": "tranches"
               },
@@ -1230,7 +1230,7 @@
       },
       {
           "id": 36,
-          "name": "Lasagne Courgettes et Chèvre",
+          "name": "Lasagne courgettes et chèvre",
           "servings": 2,
           "ingredients": [
               {
@@ -1378,7 +1378,7 @@
                   "unit": "Litres"
               },
               {
-                  "ingredient": "Citron Vert",
+                  "ingredient": "Citron vert",
                   "quantity": 3
               },
               {
