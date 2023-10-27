@@ -15,7 +15,8 @@ function displayUtensilsFilter(utensils) {
       }
       utensilLi.addEventListener('click', (event) => {
         selectedTags.push(event.target.textContent);
-        displaySearchInputFromUtensils(event.target.textContent, search.length > 0 ? search : recipes);
+        // displaySearchInputFromUtensils(event.target.textContent, search.length > 0 ? search : recipes);
+        displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes, 'utensil');
         toggleDropdown(dropdownUtensils);
       })
       dropdownUtensils.appendChild(utensilLi);

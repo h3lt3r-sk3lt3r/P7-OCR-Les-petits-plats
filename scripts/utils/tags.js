@@ -25,9 +25,11 @@ function getRecipeWithTags() {
         selectedTags.forEach((tag, i) => {
           if (utensilsTags.includes(tag)) {
             if (i === 0) {
-              displaySearchInputFromUtensils(tag, i === 0 ? recipes : search);
+              // displaySearchInputFromUtensils(tag, i === 0 ? recipes : search);
+              displaySearchInput(tag, i === 0 ? recipes : search, 'utensil');
             } else {
-              displaySearchInputFromUtensils(tag, search);
+              // displaySearchInputFromUtensils(tag, search);
+              displaySearchInput(tag, search, 'utensil');
             }
           } else if (i === 0) {
             displaySearchInput(tag, recipes);
@@ -57,9 +59,11 @@ function getRecipeWithTags() {
         selectedTags.forEach((tag, i) => {
           if (utensilsTags.includes(tag)) {
             if (i === 0) {
-              displaySearchInputFromUtensils(tag, i === 0 ? recipes : search);
+              // displaySearchInputFromUtensils(tag, i === 0 ? recipes : search);
+              displaySearchInput(tag, i === 0 ? recipes : search, 'utensil');
             } else {
-              displaySearchInputFromUtensils(tag, search);
+              // displaySearchInputFromUtensils(tag, search);
+              displaySearchInput(tag, search, 'utensil');
             }
           } else if (i === 0) {
             displaySearchInput(tag, recipes);

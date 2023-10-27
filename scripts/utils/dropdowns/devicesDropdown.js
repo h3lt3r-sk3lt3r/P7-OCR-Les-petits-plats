@@ -5,20 +5,22 @@ const inputDevice = wrapperDevices.querySelector('.dropdown-input');
 let filterDevices = [];
 
 function displayDevicesFilter(devices) {
-  const deviceModel = dropdownFactory(devices, "device");
-  const deviceLi = deviceModel.getDropdown();
-  if (deviceLi) {
-    deviceLi.dataset.type = 'device';
-    if (selectedTags.includes(devices)) {
-      deviceLi.classList.add('dropdown-added-tag')
+  devices.forEach((device) => {
+    const deviceModel = dropdownFactory(device, "device");
+    const deviceLi = deviceModel.getDropdown();
+    if (deviceLi) {
+      deviceLi.dataset.type = 'device';
+      if (selectedTags.includes(device)) {
+        deviceLi.classList.add('dropdown-added-tag')
+      }
+      deviceLi.addEventListener('click', (event) => {
+        selectedTags.push(event.target.textContent);
+        displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes);
+        toggleDropdown(dropdownDevices);
+      })
+      dropdownDevices.appendChild(deviceLi);
     }
-    deviceLi.addEventListener('click', (event) => {
-      selectedTags.push(event.target.textContent);
-      displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes);
-      toggleDropdown(dropdownDevices);
-    })
-    dropdownDevices.appendChild(deviceLi);
-  }
+  })
 }
 
 function displayInputDevice(input, devices) {
@@ -44,7 +46,7 @@ inputDevice.addEventListener("keyup", (event) => {
       filterDevices = [];
       removeDropdownChildNode(dropdownDevices);
       recipes.forEach((recipe) => {
-        displayDevicesFilter(recipe.appliance);
+        displayDevicesFilter([recipe.appliance]);
       });
     }
   }

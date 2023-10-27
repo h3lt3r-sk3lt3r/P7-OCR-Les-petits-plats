@@ -63,7 +63,7 @@ function displayDropdown(recipes) {
   dropdownUtensils.innerHTML = '';
   recipes.forEach((recipe) => {
     const ingredients = recipe.ingredients;
-    const devices = recipe.appliance;
+    const devices = [recipe.appliance];
     const utensils = recipe.ustensils;
     displayIngredientsFilter(ingredients);
     displayDevicesFilter(devices);

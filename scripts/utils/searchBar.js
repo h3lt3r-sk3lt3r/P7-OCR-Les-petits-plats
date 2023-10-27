@@ -3,7 +3,7 @@ const searchBar = document.getElementById('search-bar');
 function searchBarRecipes(data, recipes) {
   search = recipes.filter((recipe => {
     let matched = false;
-    if (normalizer(recipe.name).includes(normalizer(data)) || normalizer(recipe.description).includes(normalizer(data))) {
+    if (normalizer(recipe.name).includes(normalizer(data)) || normalizer(recipe.description).includes(normalizer(data)) || normalizer(recipe.appliance).includes(normalizer(data))) {
       return true;
     }
     recipe.ingredients.forEach(({ ingredient }) => {
@@ -11,28 +11,55 @@ function searchBarRecipes(data, recipes) {
         matched = true;
       }
     });
+    recipe.ustensils.forEach((utensil) => {
+      if (normalizer(utensil).includes(normalizer(data))) {
+        matched = true;
+      }
+    })
     return matched;
   }
   ));
   return search;
 }
 
-function searchInputFromUtensils(inputValue, recipes) {
-  return search = recipes.filter((recipe) => {
-    return recipe.ustensils.includes(inputValue);
-  })
+// function searchInputFromUtensils(inputValue, recipes) {
+//   return search = recipes.filter((recipe) => {
+//     return recipe.ustensils.includes(inputValue);
+//   })
+// }
+
+function searchInputFrom(inputValue, recipes, inputType) {
+  if (inputType === 'ingredient') {
+    // return search = recipes.filter((recipe) => {
+    //   return recipe.ingredients.includes(inputValue);
+    // })
+  } else if (inputType === 'device') {
+    // return search = recipes.filter((recipe) => {
+    //   return recipe.appliance.includes(inputValue);
+    // })
+  } else if (inputType === 'utensil') {
+    return search = recipes.filter((recipe) => {
+      return recipe.ustensils.includes(inputValue);
+    })
+  }
 }
 
-function displaySearchInputFromUtensils(inputValue, recipes) {
-  const search = searchInputFromUtensils(inputValue, recipes);
-  search.length > 0 ? displayRecipes(search) : displayNoRecipes();
-  displayDropdown(search);
-}
+// function displaySearchInputFromUtensils(inputValue, recipes) {
+//   const search = searchInputFromUtensils(inputValue, recipes);
+//   search.length > 0 ? displayRecipes(search) : displayNoRecipes();
+//   displayDropdown(search);
+// }
 
-function displaySearchInput(data, recipes) {
-  const search = searchBarRecipes(data, recipes);
-  search.length > 0 ? displayRecipes(search) : displayNoRecipes();
-  displayDropdown(recipes);
+function displaySearchInput(data, recipes, inputType = null) {
+  if (inputType === null) {
+    const search = searchBarRecipes(data, recipes);
+    search.length > 0 ? displayRecipes(search) : displayNoRecipes();
+    displayDropdown(recipes);
+  } else {
+    const search = searchInputFrom(data, recipes, inputType)
+    search.length > 0 ? displayRecipes(search) : displayNoRecipes();
+    displayDropdown(search);
+  }
 }
 
 searchBar.addEventListener('input', (e) => {
@@ -48,9 +75,11 @@ searchBar.addEventListener('input', (e) => {
         selectedTags.forEach((tag, i) => {
           if (utensilsTags.includes(tag)) {
             if (i === 0) {
-              displaySearchInputFromUtensils(tag, i === 0 ? recipes : search);
+              // displaySearchInputFromUtensils(tag, i === 0 ? recipes : search);
+              displaySearchInput(tag, i === 0 ? recipes : search, 'utensil');
             } else {
-              displaySearchInputFromUtensils(tag, search);
+              // displaySearchInputFromUtensils(tag, search);
+              displaySearchInput(tag, search, 'utensil');
             }
           } else if (i === 0) {
             displaySearchInput(tag, recipes);
@@ -96,9 +125,11 @@ function resetSearchResults() {
       selectedTags.forEach((tag, i) => {
         if (utensilsTags.includes(tag)) {
           if (i === 0) {
-            displaySearchInputFromUtensils(tag, i === 0 ? recipes : search);
+            // displaySearchInputFromUtensils(tag, i === 0 ? recipes : search);
+            displaySearchInput(tag, i === 0 ? recipes : search, 'utensil');
           } else {
-            displaySearchInputFromUtensils(tag, search);
+            // displaySearchInputFromUtensils(tag, search);
+            displaySearchInput(tag, search, 'utensil');
           }
         } else if (i === 0) {
           displaySearchInput(tag, recipes);
