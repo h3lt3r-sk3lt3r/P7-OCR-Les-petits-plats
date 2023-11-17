@@ -22,33 +22,22 @@ function searchBarRecipes(data, recipes) {
   return search;
 }
 
-// function searchInputFromUtensils(inputValue, recipes) {
-//   return search = recipes.filter((recipe) => {
-//     return recipe.ustensils.includes(inputValue);
-//   })
-// }
-
 function searchInputFrom(inputValue, recipes, inputType) {
   if (inputType === 'ingredient') {
-    // return search = recipes.filter((recipe) => {
-    //   return recipe.ingredients.includes(inputValue);
-    // })
+    return search = recipes.filter((recipe) => {
+      const ingredients = recipe.ingredients.map(item => item.ingredient)
+      return ingredients.includes(inputValue);
+    })
   } else if (inputType === 'device') {
-    // return search = recipes.filter((recipe) => {
-    //   return recipe.appliance.includes(inputValue);
-    // })
+    return search = recipes.filter((recipe) => {
+      return recipe.appliance.includes(inputValue);
+    })
   } else if (inputType === 'utensil') {
     return search = recipes.filter((recipe) => {
       return recipe.ustensils.includes(inputValue);
     })
   }
 }
-
-// function displaySearchInputFromUtensils(inputValue, recipes) {
-//   const search = searchInputFromUtensils(inputValue, recipes);
-//   search.length > 0 ? displayRecipes(search) : displayNoRecipes();
-//   displayDropdown(search);
-// }
 
 function displaySearchInput(data, recipes, inputType = null) {
   if (inputType === null) {

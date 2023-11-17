@@ -15,7 +15,6 @@ function displayUtensilsFilter(utensils) {
       }
       utensilLi.addEventListener('click', (event) => {
         selectedTags.push(event.target.textContent);
-        // displaySearchInputFromUtensils(event.target.textContent, search.length > 0 ? search : recipes);
         displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes, 'utensil');
         toggleDropdown(dropdownUtensils);
       })
@@ -43,7 +42,7 @@ inputUtensil.addEventListener("input", (event) => {
 inputUtensil.addEventListener("keyup", (event) => {
   if (event.key == "Backspace" || event.key == "Delete") {
     const searchedItem = event.currentTarget.value.trim().toLowerCase();
-    if (searchedItem.length <= 0) {
+    if (searchedItem.length < 0) {
       filterUtensils = [];
       removeDropdownChildNode(dropdownUtensils);
       recipes.forEach((recipe) => {

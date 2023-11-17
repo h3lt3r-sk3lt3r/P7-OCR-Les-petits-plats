@@ -15,7 +15,8 @@ function displayIngredientsFilter(ingredients) {
       }
       ingredientLi.addEventListener('click', (event) => {
         selectedTags.push(event.target.textContent);
-        displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes);
+        // displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes);
+        displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes, 'ingredient');
         toggleDropdown(dropdownIngredients);
       })
       dropdownIngredients.appendChild(ingredientLi);
@@ -42,7 +43,7 @@ inputIngredient.addEventListener("input", (event) => {
 inputIngredient.addEventListener("keyup", (event) => {
   if (event.key == "Backspace" || event.key == "Delete") {
     const searchedItem = event.currentTarget.value.trim().toLowerCase();
-    if (searchedItem.length <= 0) {
+    if (searchedItem.length < 0) {
       filterIngredients = [];
       removeDropdownChildNode(dropdownIngredients);
       recipes.forEach((recipe) => {

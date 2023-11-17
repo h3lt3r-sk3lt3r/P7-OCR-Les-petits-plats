@@ -66,8 +66,8 @@ function displayDropdown(recipes) {
     const devices = [recipe.appliance];
     const utensils = recipe.ustensils;
     displayIngredientsFilter(ingredients);
-    displayDevicesFilter(devices);
     displayUtensilsFilter(utensils);
+    displayDevicesFilter(devices);
   })
 }
 
