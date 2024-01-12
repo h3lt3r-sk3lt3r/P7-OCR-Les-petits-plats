@@ -12,14 +12,6 @@ function toggleDropdown(target) {
   } else {
     parent.classList.add('dropdown-global-open')
   }
-
-  // parent.classList.toggle('dropdown-global-open');
-  filters.forEach(filter => {
-    if(filter != clickedFilter){
-      filter.classList.toggle('dropdown-not-clicked');
-    }
-  })
-  clickedFilter.classList.toggle('dropdown-clicked');
 }
 
 document.addEventListener('click', (event) => {
@@ -64,7 +56,6 @@ function clickedDropdownItem(target) {
 }
 
 function addListener(node) {
-  console.log(node)
   if(node.hasChildNodes()) {
     for(const child of node.children){
       if(child.tagName != 'UL' && child.tagName != 'INPUT'){

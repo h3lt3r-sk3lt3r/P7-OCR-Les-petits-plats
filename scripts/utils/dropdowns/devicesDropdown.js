@@ -15,7 +15,6 @@ function displayDevicesFilter(devices) {
       }
       deviceLi.addEventListener('click', (event) => {
         selectedTags.push(event.target.textContent);
-        // displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes);
         displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes, 'device');
         toggleDropdown(dropdownDevices);
       })

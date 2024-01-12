@@ -15,7 +15,6 @@ function displayIngredientsFilter(ingredients) {
       }
       ingredientLi.addEventListener('click', (event) => {
         selectedTags.push(event.target.textContent);
-        // displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes);
         displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes, 'ingredient');
         toggleDropdown(dropdownIngredients);
       })
