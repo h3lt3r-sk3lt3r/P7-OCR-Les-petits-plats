@@ -1,24 +1,58 @@
 const searchBar = document.getElementById('search-bar');
 
+// function searchBarRecipes(data, recipes) {
+//   search = recipes.filter((recipe => {
+//     let matched = false;
+//     if (normalizer(recipe.name).includes(normalizer(data)) || normalizer(recipe.description).includes(normalizer(data)) || normalizer(recipe.appliance).includes(normalizer(data))) {
+//       return true;
+//     }
+//     recipe.ingredients.forEach(({ ingredient }) => {
+//       if (normalizer(ingredient).includes(normalizer(data))) {
+//         matched = true;
+//       }
+//     });
+//     recipe.ustensils.forEach((utensil) => {
+//       if (normalizer(utensil).includes(normalizer(data))) {
+//         matched = true;
+//       }
+//     })
+//     return matched;
+//   }
+//   ));
+//   return search;
+// }
+
 function searchBarRecipes(data, recipes) {
-  search = recipes.filter((recipe => {
+  const search = [];
+
+  for (const recipe of recipes) {
     let matched = false;
-    if (normalizer(recipe.name).includes(normalizer(data)) || normalizer(recipe.description).includes(normalizer(data)) || normalizer(recipe.appliance).includes(normalizer(data))) {
-      return true;
+
+    if (
+      normalizer(recipe.name).includes(normalizer(data)) ||
+      normalizer(recipe.description).includes(normalizer(data)) ||
+      normalizer(recipe.appliance).includes(normalizer(data))
+    ) {
+      matched = true;
     }
-    recipe.ingredients.forEach(({ ingredient }) => {
+
+    for (const { ingredient } of recipe.ingredients) {
       if (normalizer(ingredient).includes(normalizer(data))) {
         matched = true;
       }
-    });
-    recipe.ustensils.forEach((utensil) => {
+    }
+
+    for (const utensil of recipe.ustensils) {
       if (normalizer(utensil).includes(normalizer(data))) {
         matched = true;
       }
-    })
-    return matched;
+    }
+
+    if (matched) {
+      search.push(recipe);
+    }
   }
-  ));
+
   return search;
 }
 

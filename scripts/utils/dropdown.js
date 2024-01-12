@@ -6,7 +6,14 @@ function toggleDropdown(target) {
   const filters = document.querySelectorAll('.search-dropdowns')
   const parent = target.parentNode;
   const clickedFilter = parent.parentNode
-  parent.classList.toggle('dropdown-global-open');
+
+  if (parent.classList.contains('dropdown-global-open')) {
+    parent.classList.remove('dropdown-global-open')
+  } else {
+    parent.classList.add('dropdown-global-open')
+  }
+
+  // parent.classList.toggle('dropdown-global-open');
   filters.forEach(filter => {
     if(filter != clickedFilter){
       filter.classList.toggle('dropdown-not-clicked');
@@ -14,6 +21,23 @@ function toggleDropdown(target) {
   })
   clickedFilter.classList.toggle('dropdown-clicked');
 }
+
+document.addEventListener('click', (event) => {
+  const dropdowns = document.querySelectorAll('.dropdown-global');
+
+  dropdowns.forEach(dropdown => {
+    if (dropdown.contains(event.target)) {
+      return;
+    }
+
+    const buttonInsideDropdown = dropdown.querySelector('button');
+    if (buttonInsideDropdown && buttonInsideDropdown.contains(event.target)) {
+      return;
+    }
+
+    dropdown.classList.remove('dropdown-global-open');
+  });
+});
 
 function clickedDropdownItem(target) {
   const tag = document.createElement('div');
