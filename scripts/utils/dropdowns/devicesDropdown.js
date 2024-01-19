@@ -6,7 +6,7 @@ let filterDevices = [];
 
 function displayDevicesFilter(devices) {
   const filteredDevices = devices.filter(device => !selectedTags.includes(device))
-  devices.forEach((device) => {
+  filteredDevices.forEach((device) => {
     const deviceModel = dropdownFactory(device, "device");
     const deviceLi = deviceModel.getDropdown();
     if (deviceLi) {
