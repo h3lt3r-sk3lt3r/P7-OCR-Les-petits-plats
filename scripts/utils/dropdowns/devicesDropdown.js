@@ -5,14 +5,12 @@ const inputDevice = wrapperDevices.querySelector('.dropdown-input');
 let filterDevices = [];
 
 function displayDevicesFilter(devices) {
+  const filteredDevices = devices.filter(device => !selectedTags.includes(device))
   devices.forEach((device) => {
     const deviceModel = dropdownFactory(device, "device");
     const deviceLi = deviceModel.getDropdown();
     if (deviceLi) {
       deviceLi.dataset.type = 'device';
-      if (selectedTags.includes(device)) {
-        deviceLi.classList.add('dropdown-added-tag')
-      }
       deviceLi.addEventListener('click', (event) => {
         selectedTags.push(event.target.textContent);
         displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes, 'device');

@@ -5,14 +5,15 @@ const inputUtensil = wrapperUtensils.querySelector('.dropdown-input');
 let filterUtensils = [];
 
 function displayUtensilsFilter(utensils) {
-  utensils.forEach((utensil) => {
+  const filteredUtensils = utensils.filter(utensil => !selectedTags.includes(utensil))
+  filteredUtensils.forEach((utensil) => {
     const utensilModel = dropdownFactory(utensil, "utensil");
     const utensilLi = utensilModel.getDropdown();
     if (utensilLi) {
       utensilLi.dataset.type = 'utensil';
-      if (selectedTags.includes(utensil)) {
-        utensilLi.classList.add('dropdown-added-tag');
-      }
+      // if (selectedTags.includes(utensil)) {
+      //   utensilLi.classList.add('dropdown-added-tag');
+      // }
       utensilLi.addEventListener('click', (event) => {
         selectedTags.push(event.target.textContent);
         displaySearchInput(event.target.textContent, search.length > 0 ? search : recipes, 'utensil');

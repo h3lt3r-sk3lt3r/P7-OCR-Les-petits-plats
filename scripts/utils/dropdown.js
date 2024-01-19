@@ -3,9 +3,7 @@ const tags = document.querySelector('.tags');
 let selectedTags = [];
 
 function toggleDropdown(target) {
-  const filters = document.querySelectorAll('.search-dropdowns')
   const parent = target.parentNode;
-  const clickedFilter = parent.parentNode
 
   if (parent.classList.contains('dropdown-global-open')) {
     parent.classList.remove('dropdown-global-open')
